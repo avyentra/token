@@ -373,3 +373,16 @@
     document.addEventListener('visibilitychange', function(){ if(document.hidden) hide(0); else setTimeout(show, 150); });
   })();
 })();
+
+/* ---------- Ecosystem bento: cursor spotlight ---------- */
+(function(){
+  document.querySelectorAll('#ecosystem .eb-card').forEach(function(card){
+    var spot = document.createElement('span'); spot.className = 'eco-spot'; spot.setAttribute('aria-hidden','true');
+    card.insertBefore(spot, card.firstChild);
+    card.addEventListener('pointermove', function(e){
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+})();

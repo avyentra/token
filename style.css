@@ -1297,23 +1297,6 @@ html.ss-hide body>*:not(.ss-shield){filter:blur(30px)}
 .tb-cta{box-shadow:0 4px 16px rgba(37,99,235,.35)}
 
 /* =========================================================
-   ECOSYSTEM — lift the cards off the dark background
-   ========================================================= */
-#ecosystem{background:
-  radial-gradient(700px 420px at 12% 8%,rgba(124,58,237,.16),transparent 70%),
-  radial-gradient(760px 480px at 92% 60%,rgba(37,99,235,.14),transparent 70%),
-  #060912}
-#ecosystem .eco-card{
-  background:linear-gradient(180deg,#16203d 0%,#0f1730 100%);
-  border:1px solid rgba(129,140,248,.24);
-  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 24px 50px -18px rgba(0,0,0,.7)}
-#ecosystem .eco-card::after{content:"";position:absolute;left:24px;right:24px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(103,232,249,.55),rgba(167,139,250,.55),transparent);pointer-events:none}
-#ecosystem .eco-card:hover{border-color:rgba(103,232,249,.55);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 28px 60px -16px rgba(37,99,235,.45)}
-#ecosystem .eco-card p{color:#a5b4cf}
-#ecosystem .eco-ill{background:radial-gradient(circle at 50% 50%,rgba(37,99,235,.14),transparent 70%),#080d1d;border-color:rgba(129,140,248,.14);box-shadow:inset 0 2px 12px rgba(0,0,0,.45)}
-#ecosystem .eco-cap{color:#7c8db0}
-
-/* =========================================================
    RESOURCES — same lifted-card treatment as Ecosystem
    ========================================================= */
 #resources{background:
@@ -1331,3 +1314,126 @@ html.ss-hide body>*:not(.ss-shield){filter:blur(30px)}
 #resources .res small{color:#7c8db0}
 #resources .res .arrow{stroke:#7c8db0}
 #resources .res .ri{background:rgba(0,229,255,.12);border-color:rgba(103,232,249,.35)}
+
+/* =========================================================
+   ECOSYSTEM — bento grid (light section, mixed tiles)
+   ========================================================= */
+#ecosystem{color:#120b51;overflow:hidden;background:
+  radial-gradient(800px 500px at 8% 0%,rgba(167,139,250,.22),transparent 70%),
+  radial-gradient(800px 520px at 100% 100%,rgba(103,232,249,.22),transparent 70%),
+  linear-gradient(180deg,#f3f4ff 0%,#f7f8ff 50%,#eef7ff 100%)}
+#ecosystem::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(99,102,241,.16) 1px,transparent 1.4px);background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(70% 45% at 50% 0%,#000,transparent 75%);mask-image:radial-gradient(70% 45% at 50% 0%,#000,transparent 75%)}
+#ecosystem .wrap{position:relative}
+#ecosystem .eyebrow{color:#2563eb}
+#ecosystem .sec-title{color:#120b51;margin-bottom:0}
+#ecosystem .sec-title .grad{background:linear-gradient(90deg,#0891b2,#2563eb 50%,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+.eb-head{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.eb-head .sec-sub{color:#64748b;max-width:420px;margin:0 0 8px}
+
+.eb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:52px;grid-auto-flow:dense}
+.eb-wide{grid-column:span 2}
+.eb-tall{grid-row:span 2}
+
+/* base tile */
+.eb-card{--c:#2563eb;position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;gap:22px;padding:26px;border-radius:28px;
+  background:#fff;border:1px solid rgba(15,23,42,.06);
+  box-shadow:0 1px 2px rgba(15,23,42,.04),0 22px 50px -26px rgba(30,41,99,.25);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .35s}
+.eb-card:hover{transform:translateY(-8px);border-color:color-mix(in srgb,var(--c) 35%,transparent);
+  box-shadow:0 1px 2px rgba(15,23,42,.04),0 36px 70px -26px color-mix(in srgb,var(--c) 60%,rgba(30,41,99,.4))}
+.eb-card .eco-spot{background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c) 11%,transparent),transparent 65%)}
+.eb-card:hover .eco-spot{opacity:1}
+.eb-body{position:relative;display:flex;flex-direction:column}
+.eb-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.eb-ic{width:50px;height:50px;border-radius:15px;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 55%,#1e1b4b));
+  box-shadow:0 12px 24px -10px var(--c),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.eb-ic svg{width:24px;height:24px}
+.eb-card:hover .eb-ic{transform:rotate(-8deg) scale(1.08)}
+.eb-no{font-family:Manrope,Inter,sans-serif;font-size:13px;font-weight:800;letter-spacing:.12em;color:#94a3b8;padding:6px 10px;border-radius:99px;border:1px solid rgba(15,23,42,.08);transition:color .3s,border-color .3s,background .3s}
+.eb-card:hover .eb-no{color:var(--c);border-color:color-mix(in srgb,var(--c) 40%,transparent);background:color-mix(in srgb,var(--c) 8%,#fff)}
+.eb-card h3{font-family:Manrope,Inter,sans-serif;font-size:21px;font-weight:800;letter-spacing:-.01em;color:#120b51;margin-bottom:8px}
+.eb-card p{font-size:14.5px;line-height:1.6;color:#64748b}
+.eb-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;padding:0;list-style:none}
+.eb-tags li{font-size:12px;font-weight:600;padding:5px 11px;border-radius:99px;color:color-mix(in srgb,var(--c) 75%,#0f172a);background:color-mix(in srgb,var(--c) 10%,#fff);border:1px solid color-mix(in srgb,var(--c) 22%,#fff)}
+
+/* illustration "screen" */
+.eb-ill{position:relative;flex:1;min-height:200px;border-radius:20px;overflow:hidden;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(70% 70% at 50% 120%,color-mix(in srgb,var(--c) 45%,transparent),transparent 70%),
+    radial-gradient(60% 60% at 90% 0%,color-mix(in srgb,var(--c) 16%,transparent),transparent 70%),
+    linear-gradient(160deg,#121c3f 0%,#080d1f 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06),0 16px 30px -16px rgba(8,13,31,.6)}
+.eb-ill::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:24px 24px;pointer-events:none}
+.eb-art{position:relative;width:100%;max-width:480px;height:190px;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.eb-art>svg{width:100%;height:100%}
+.eb-card:hover .eb-art{transform:scale(1.06)}
+.eb-concept{position:absolute;left:14px;top:12px;z-index:2;font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);padding:4px 9px;border-radius:99px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+
+/* wide tile: text left, screen right */
+.eb-wide{flex-direction:row;align-items:stretch}
+.eb-wide .eb-body{flex:0 0 40%;justify-content:center}
+.eb-wide .eb-ill{min-height:250px}
+/* tall tile */
+.eb-tall .eb-ill{min-height:320px}
+
+/* dark feature tile */
+.eb-dark{background:radial-gradient(500px 300px at 0% 0%,color-mix(in srgb,var(--c) 22%,transparent),transparent 70%),linear-gradient(150deg,#101a3a 0%,#070b18 100%);border-color:rgba(255,255,255,.06)}
+.eb-dark h3{color:#fff;font-size:26px}
+.eb-dark p{color:#a5b4cf}
+.eb-dark .eb-no{color:#64748b;border-color:rgba(255,255,255,.12)}
+.eb-dark:hover .eb-no{background:rgba(255,255,255,.04)}
+.eb-dark .eb-tags li{color:#a5f3fc;background:rgba(34,211,238,.1);border-color:rgba(34,211,238,.25)}
+.eb-dark .eb-ill{background:radial-gradient(70% 70% at 50% 120%,color-mix(in srgb,var(--c) 40%,transparent),transparent 70%),rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.eb-dark .eco-spot{background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c) 16%,transparent),transparent 65%)}
+
+/* CTA tile */
+.eb-cta{justify-content:flex-end;gap:0;min-height:300px;color:#fff;border:0;
+  background:radial-gradient(380px 260px at 100% 0%,rgba(103,232,249,.45),transparent 70%),linear-gradient(140deg,#2563eb 0%,#5b3df5 55%,#7c3aed 100%);
+  box-shadow:0 30px 60px -24px rgba(91,61,245,.6)}
+.eb-cta::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.22) 1px,transparent 1.4px);background-size:20px 20px;-webkit-mask-image:linear-gradient(135deg,#000,transparent 60%);mask-image:linear-gradient(135deg,#000,transparent 60%);pointer-events:none;z-index:-1}
+.eb-cta:hover{border-color:transparent;box-shadow:0 40px 70px -24px rgba(91,61,245,.75)}
+.eb-cta-k{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.eb-cta h3{color:#fff;font-size:30px;line-height:1.1;margin:10px 0 10px}
+.eb-cta p{color:rgba(255,255,255,.8);max-width:260px}
+.eb-cta-btn{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:22px;padding:12px 20px;border-radius:99px;background:#fff;color:#3b2fd6;font-weight:700;font-size:14px;box-shadow:0 10px 24px rgba(15,23,42,.2);transition:transform .25s,box-shadow .25s}
+.eb-cta-btn svg{width:14px;height:14px;transition:transform .25s}
+.eb-cta-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(15,23,42,.28)}
+.eb-cta-btn:hover svg{transform:translate(2px,-2px)}
+.eb-cta-coin{position:absolute;right:-30px;top:-30px;width:150px;height:150px;border-radius:50%;display:grid;place-items:center;z-index:-1;
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.35),rgba(255,255,255,.06) 60%);border:1px solid rgba(255,255,255,.3);animation:wa-bob 6s ease-in-out infinite}
+.eb-cta-coin img{width:46%;opacity:.9}
+
+/* responsive */
+@media (max-width:1100px){
+  .eb-grid{grid-template-columns:repeat(2,1fr)}
+  .eb-wide{grid-column:span 2}
+}
+@media (max-width:760px){
+  .eb-grid{grid-template-columns:1fr;gap:16px;margin-top:36px}
+  .eb-wide{grid-column:auto;flex-direction:column}
+  .eb-tall{grid-row:auto}
+  .eb-wide .eb-ill,.eb-tall .eb-ill{min-height:200px}
+  .eb-card{padding:20px;border-radius:24px}
+  .eb-dark h3{font-size:22px}
+  .eb-head{gap:14px}
+}
+@media (prefers-reduced-motion:reduce){.eb-cta-coin{animation:none}}
+.eco-spot{position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;opacity:0;transition:opacity .4s}
+.eb-cta-coin{right:-18px;top:-18px;width:140px;height:140px}
+.eb-cta-coin .logo-mark{width:52%;height:52%;background:linear-gradient(160deg,#fff,#cffafe)}
+@media (max-width:1100px){.eb-tall{grid-row:auto}.eb-tall .eb-ill{min-height:200px}}
+
+/* ---- bento screens: light pastel instead of dark ---- */
+.eb-ill,.eb-dark .eb-ill{
+  background:
+    radial-gradient(70% 70% at 50% 120%,color-mix(in srgb,var(--c) 30%,transparent),transparent 70%),
+    radial-gradient(60% 60% at 90% 0%,color-mix(in srgb,var(--c) 14%,transparent),transparent 70%),
+    linear-gradient(160deg,color-mix(in srgb,var(--c) 7%,#fff) 0%,color-mix(in srgb,var(--c) 14%,#eef2ff) 100%);
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 20%,#fff),0 14px 28px -18px color-mix(in srgb,var(--c) 50%,rgba(30,41,99,.4))}
+.eb-ill::before{background-image:linear-gradient(rgba(15,23,42,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.045) 1px,transparent 1px)}
+.eb-art>svg,.eb-art>div{filter:drop-shadow(0 10px 18px rgba(30,41,99,.18))}
+.eb-concept{color:color-mix(in srgb,var(--c) 70%,#0f172a);background:rgba(255,255,255,.75);border-color:color-mix(in srgb,var(--c) 25%,#fff)}
+.eb-card:hover .eb-ill{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 45%,#fff),0 18px 34px -16px color-mix(in srgb,var(--c) 55%,rgba(30,41,99,.4))}
+.eb-dark .eb-ill{box-shadow:inset 0 0 0 1px rgba(255,255,255,.4),0 20px 40px -20px rgba(0,0,0,.6)}

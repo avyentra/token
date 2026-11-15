@@ -376,13 +376,26 @@
 
 /* ---------- Ecosystem bento: cursor spotlight ---------- */
 (function(){
-  document.querySelectorAll('#ecosystem .eb-card').forEach(function(card){
+  document.querySelectorAll('#ecosystem .eb-card, #resources .rs-card').forEach(function(card){
     var spot = document.createElement('span'); spot.className = 'eco-spot'; spot.setAttribute('aria-hidden','true');
     card.insertBefore(spot, card.firstChild);
     card.addEventListener('pointermove', function(e){
       var r = card.getBoundingClientRect();
       card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
       card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+})();
+
+/* ---------- Resources: copy contract address ---------- */
+(function(){
+  document.querySelectorAll('.rs-copy').forEach(function(btn){
+    var label = btn.querySelector('span'), t;
+    btn.addEventListener('click', function(){
+      var v = btn.getAttribute('data-copy');
+      function done(){ btn.classList.add('ok'); label.textContent = 'Copied'; clearTimeout(t); t = setTimeout(function(){ btn.classList.remove('ok'); label.textContent = 'Copy'; }, 1800); }
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(v).then(done, function(){}); }
+      else { var ta = document.createElement('textarea'); ta.value = v; document.body.appendChild(ta); ta.select(); try{ document.execCommand('copy'); done(); }catch(e){} ta.remove(); }
     });
   });
 })();

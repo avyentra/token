@@ -1297,25 +1297,6 @@ html.ss-hide body>*:not(.ss-shield){filter:blur(30px)}
 .tb-cta{box-shadow:0 4px 16px rgba(37,99,235,.35)}
 
 /* =========================================================
-   RESOURCES — same lifted-card treatment as Ecosystem
-   ========================================================= */
-#resources{background:
-  radial-gradient(700px 420px at 88% 10%,rgba(124,58,237,.16),transparent 70%),
-  radial-gradient(760px 480px at 8% 80%,rgba(37,99,235,.14),transparent 70%),
-  #060912}
-#resources .res{
-  background:linear-gradient(180deg,#16203d 0%,#0f1730 100%);
-  border:1px solid rgba(129,140,248,.24);
-  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 24px 50px -18px rgba(0,0,0,.7);
-  overflow:hidden}
-#resources .res::after{content:"";position:absolute;left:20px;right:20px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(103,232,249,.55),rgba(167,139,250,.55),transparent);pointer-events:none}
-#resources .res:hover{border-color:rgba(103,232,249,.55);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 28px 60px -16px rgba(37,99,235,.45)}
-#resources .res p{color:#a5b4cf}
-#resources .res small{color:#7c8db0}
-#resources .res .arrow{stroke:#7c8db0}
-#resources .res .ri{background:rgba(0,229,255,.12);border-color:rgba(103,232,249,.35)}
-
-/* =========================================================
    ECOSYSTEM — bento grid (light section, mixed tiles)
    ========================================================= */
 #ecosystem{color:#120b51;overflow:hidden;background:
@@ -1437,3 +1418,133 @@ html.ss-hide body>*:not(.ss-shield){filter:blur(30px)}
 .eb-concept{color:color-mix(in srgb,var(--c) 70%,#0f172a);background:rgba(255,255,255,.75);border-color:color-mix(in srgb,var(--c) 25%,#fff)}
 .eb-card:hover .eb-ill{box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 45%,#fff),0 18px 34px -16px color-mix(in srgb,var(--c) 55%,rgba(30,41,99,.4))}
 .eb-dark .eb-ill{box-shadow:inset 0 0 0 1px rgba(255,255,255,.4),0 20px 40px -20px rgba(0,0,0,.6)}
+
+/* =========================================================
+   RESOURCES — light bento with mock visuals + contract copy
+   ========================================================= */
+.rs{color:#120b51;overflow:hidden;background:
+  radial-gradient(760px 480px at 100% 0%,rgba(167,139,250,.2),transparent 70%),
+  radial-gradient(760px 480px at 0% 100%,rgba(103,232,249,.2),transparent 70%),
+  linear-gradient(180deg,#f7f8ff 0%,#f3f5ff 100%)}
+.rs::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(99,102,241,.14) 1px,transparent 1.4px);background-size:26px 26px;-webkit-mask-image:radial-gradient(60% 40% at 80% 0%,#000,transparent 75%);mask-image:radial-gradient(60% 40% at 80% 0%,#000,transparent 75%)}
+.rs .wrap{position:relative}
+.rs .eyebrow{color:#2563eb}
+.rs .sec-title{color:#120b51;margin-bottom:0}
+.rs .sec-title .grad{background:linear-gradient(90deg,#0891b2,#2563eb 50%,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.rs-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:auto auto;gap:22px;margin-top:52px}
+.rs-paper{grid-row:span 2}
+.rs-contract{grid-column:span 2}
+
+.rs-card{--c:#2563eb;position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;padding:26px;border-radius:28px;color:#120b51;
+  background:#fff;border:1px solid rgba(15,23,42,.06);box-shadow:0 1px 2px rgba(15,23,42,.04),0 22px 50px -26px rgba(30,41,99,.25);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s,border-color .35s}
+.rs-card:hover{transform:translateY(-8px);border-color:color-mix(in srgb,var(--c) 35%,transparent);box-shadow:0 1px 2px rgba(15,23,42,.04),0 36px 70px -26px color-mix(in srgb,var(--c) 60%,rgba(30,41,99,.4))}
+.rs-card .eco-spot{background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),color-mix(in srgb,var(--c) 12%,transparent),transparent 65%)}
+.rs-card:hover .eco-spot{opacity:1}
+.rs-top{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.rs-k{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:6px 11px;border-radius:99px;color:color-mix(in srgb,var(--c) 75%,#0f172a);background:color-mix(in srgb,var(--c) 10%,#fff);border:1px solid color-mix(in srgb,var(--c) 22%,#fff)}
+.rs-go{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:color-mix(in srgb,var(--c) 80%,#0f172a);border:1px solid color-mix(in srgb,var(--c) 25%,#fff);background:#fff;transition:transform .35s,background .35s,color .35s,border-color .35s}
+.rs-go svg{width:16px;height:16px}
+.rs-card:hover .rs-go{background:var(--c);border-color:var(--c);color:#fff;transform:rotate(45deg)}
+.rs-card h3{position:relative;font-family:Manrope,Inter,sans-serif;font-size:21px;font-weight:800;letter-spacing:-.01em;margin:4px 0 8px}
+.rs-card p{position:relative;font-size:14.5px;line-height:1.6;color:#64748b}
+
+/* small visual panel */
+.rs-vis{position:relative;height:170px;margin:20px 0 22px;border-radius:20px;display:grid;place-items:center;overflow:hidden;
+  background:radial-gradient(70% 70% at 50% 120%,color-mix(in srgb,var(--c) 26%,transparent),transparent 70%),linear-gradient(160deg,color-mix(in srgb,var(--c) 6%,#fff),color-mix(in srgb,var(--c) 13%,#eef2ff));
+  box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--c) 18%,#fff)}
+.rs-vis::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(15,23,42,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,23,42,.04) 1px,transparent 1px);background-size:22px 22px}
+.rs-vis svg{position:relative;width:100%;height:100%;filter:drop-shadow(0 10px 16px rgba(30,41,99,.14));transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.rs-card:hover .rs-vis svg{transform:scale(1.06)}
+.rs-ring{transition:stroke-dasharray 1.2s cubic-bezier(.2,.8,.2,1)}
+.rs-card:hover .rs-ring{stroke-dasharray:150 200}
+.rs-spin{transform-origin:130px 72px;animation:wa-rot 18s linear infinite}
+.rs-check{stroke-dasharray:40;stroke-dashoffset:0}
+.rs-card:hover .rs-check{animation:rs-draw .7s ease-out}
+@keyframes rs-draw{from{stroke-dashoffset:40}}
+
+/* whitepaper feature tile */
+.rs-paper{color:#fff;border:0;justify-content:space-between;
+  background:radial-gradient(420px 300px at 100% 0%,rgba(103,232,249,.35),transparent 70%),radial-gradient(420px 320px at 0% 100%,rgba(236,72,153,.22),transparent 70%),linear-gradient(150deg,#312e81 0%,#1e1b4b 60%,#141238 100%);
+  box-shadow:0 30px 60px -26px rgba(49,46,129,.7)}
+.rs-paper::before{content:"";position:absolute;inset:0;z-index:-1;background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1.4px);background-size:20px 20px;-webkit-mask-image:linear-gradient(160deg,#000,transparent 55%);mask-image:linear-gradient(160deg,#000,transparent 55%)}
+.rs-paper:hover{border-color:transparent;box-shadow:0 40px 70px -26px rgba(99,102,241,.75)}
+.rs-paper .rs-k{color:#c7d2fe;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16)}
+.rs-paper .rs-go{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff}
+.rs-paper:hover .rs-go{background:#fff;color:#312e81}
+.rs-paper h3{font-size:30px;color:#fff}
+.rs-paper p{color:#c7d2fe;max-width:360px}
+.rs-cta{position:relative;display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:12px 20px;border-radius:99px;background:#fff;color:#312e81;font-weight:700;font-size:14px;align-self:flex-start;box-shadow:0 10px 24px rgba(0,0,0,.25);transition:transform .25s}
+.rs-cta svg{width:14px;height:14px}
+.rs-paper:hover .rs-cta{transform:translateY(-2px)}
+.rs-txt{position:relative;display:flex;flex-direction:column}
+.rs-pages{position:relative;height:280px;margin:26px 0 20px}
+.rs-pages .pg{position:absolute;left:50%;top:10px;width:190px;height:250px;margin-left:-95px;border-radius:14px;background:#fff;box-shadow:0 24px 40px -16px rgba(0,0,0,.55);transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.rs-pages .p3{transform:rotate(-12deg) translate(-38px,8px);background:#c7d2fe}
+.rs-pages .p2{transform:rotate(8deg) translate(36px,4px);background:#e0e7ff}
+.rs-pages .p1{padding:22px 20px;display:flex;flex-direction:column;gap:9px;background:linear-gradient(180deg,#fff,#f5f7ff)}
+.rs-pages .p1 .logo-mark{width:34px;height:34px;background:linear-gradient(160deg,#06b6d4,#2563eb 55%,#7c3aed);margin-bottom:6px}
+.rs-pages .p1 b{display:block;height:9px;border-radius:5px;background:#1e1b4b;width:80%}
+.rs-pages .p1 b+b{width:55%;background:#818cf8;margin-bottom:8px}
+.rs-pages .p1 i{display:block;height:6px;border-radius:3px;background:#e2e8f0}
+.rs-pages .p1 i:nth-child(5){width:90%}.rs-pages .p1 i:nth-child(6){width:70%}.rs-pages .p1 i:last-child{width:50%}
+.rs-paper:hover .p3{transform:rotate(-16deg) translate(-56px,4px)}
+.rs-paper:hover .p2{transform:rotate(12deg) translate(54px,0)}
+.rs-paper:hover .p1{transform:translateY(-8px)}
+
+/* contract tile */
+.rs-contract{justify-content:center}
+.rs-chain{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:#334155;padding:6px 12px 6px 6px;border-radius:99px;background:#fffbeb;border:1px solid #fde68a}
+.rs-chain img{width:22px;height:22px;border-radius:50%;background:#fff;padding:2px}
+.rs-contract h3{margin-top:18px}
+.rs-addr{position:relative;display:flex;align-items:center;gap:10px;margin-top:20px;padding:8px 8px 8px 18px;border-radius:18px;background:linear-gradient(160deg,#fffdf5,#fff7e0);border:1px solid #fde68a;flex-wrap:wrap}
+.rs-addr code{flex:1;min-width:0;font-family:"SFMono-Regular",ui-monospace,Menlo,Consolas,monospace;font-size:14.5px;font-weight:600;color:#1e1b4b;letter-spacing:.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rs-copy,.rs-scan{display:inline-flex;align-items:center;gap:7px;padding:11px 16px;border-radius:12px;font-size:13.5px;font-weight:700;transition:transform .2s,background .2s,box-shadow .2s}
+.rs-copy{background:#fff;color:#1e1b4b;border:1px solid #fde68a}
+.rs-copy:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(240,185,11,.25)}
+.rs-copy.ok{background:#10b981;border-color:#10b981;color:#fff}
+.rs-scan{background:#1e1b4b;color:#fff}
+.rs-scan:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(30,27,75,.35)}
+.rs-copy svg,.rs-scan svg{width:15px;height:15px}
+
+/* facts strip */
+.rs-facts{display:grid;grid-template-columns:repeat(4,1fr);margin:22px 0 0;padding:0;list-style:none;border-radius:24px;background:rgba(255,255,255,.8);border:1px solid rgba(15,23,42,.06);box-shadow:0 20px 40px -26px rgba(30,41,99,.25);overflow:hidden}
+.rs-facts li{display:flex;align-items:center;gap:14px;padding:20px 22px;border-left:1px solid rgba(15,23,42,.06)}
+.rs-facts li:first-child{border-left:0}
+.rs-fi{flex:0 0 42px;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#eef2ff;color:#4338ca;font-family:Manrope,Inter,sans-serif;font-size:12px;font-weight:800}
+.rs-fi img{width:26px;height:26px}
+.rs-fi.a{background:#ecfdf5;color:#059669}.rs-fi.a svg{width:22px;height:22px}
+.rs-facts b{display:block;font-family:Manrope,Inter,sans-serif;font-size:16px;font-weight:800;color:#120b51}
+.rs-facts span{font-size:12.5px;color:#64748b}
+
+@media (max-width:1100px){
+  .rs-grid{grid-template-columns:1fr 1fr}
+  .rs-paper{grid-row:auto;grid-column:span 2}
+  .rs-pages{height:240px}
+  .rs-facts{grid-template-columns:1fr 1fr}
+  .rs-facts li:nth-child(3){border-left:0}
+  .rs-facts li:nth-child(n+3){border-top:1px solid rgba(15,23,42,.06)}
+}
+@media (max-width:760px){
+  .rs-grid{grid-template-columns:1fr;gap:16px;margin-top:36px}
+  .rs-paper,.rs-contract{grid-column:auto}
+  .rs-card{padding:20px;border-radius:24px}
+  .rs-paper h3{font-size:26px}
+  .rs-addr{padding:12px}
+  .rs-addr code{flex-basis:100%;font-size:12.5px}
+  .rs-copy,.rs-scan{flex:1;justify-content:center}
+  .rs-facts{grid-template-columns:1fr}
+  .rs-facts li{border-left:0!important;border-top:1px solid rgba(15,23,42,.06)}
+  .rs-facts li:first-child{border-top:0}
+}
+@media (prefers-reduced-motion:reduce){.rs-spin{animation:none}}
+.rs-k,.rs-chain,.rs-copy,.rs-scan{white-space:nowrap}
+.rs-top{flex-wrap:wrap}
+@media (max-width:760px){
+  .rs-pages{height:230px;margin:18px 0 10px}
+  .rs-pages .pg{width:150px;height:200px;margin-left:-75px}
+  .rs-pages .p1{padding:16px;gap:7px}
+  .rs-addr code{white-space:normal;word-break:break-all;font-size:13px;line-height:1.5}
+  .rs-copy,.rs-scan{padding:11px 12px}
+}

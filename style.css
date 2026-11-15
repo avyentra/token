@@ -1205,7 +1205,10 @@ html.ss-hide body>*:not(.ss-shield){filter:blur(30px)}
    HERO LIGHT THEME — soft lavender / aqua (overrides above)
    ========================================================= */
 /* nav: light while sitting on top of the hero, dark glass once scrolled */
-.nav:not(.scrolled){background:#f5f6ff;border-bottom:1px solid rgba(99,102,241,.08)}
+.nav:not(.scrolled){background:transparent;border-bottom:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+/* hero slides up under the nav so they share one background */
+.hero.hz{margin-top:-74px;padding-top:158px}
+@media (max-width:720px){.hero.hz{padding-top:130px}}
 .nav:not(.scrolled) .nav-links a{color:#475569}
 .nav:not(.scrolled) .nav-links a:hover,.nav:not(.scrolled) .nav-links a.active{color:#0f172a}
 .nav:not(.scrolled) .nav-links a::after{background:#2563eb}
@@ -1286,3 +1289,45 @@ html.ss-hide body>*:not(.ss-shield){filter:blur(30px)}
 .hero.hz .hz-buy:hover{box-shadow:0 14px 32px rgba(37,99,235,.42)}
 @media (max-width:1100px){.hero.hz .hz-cd{border-top-color:rgba(15,23,42,.08)}}
 @media (max-width:720px){.hero.hz .hz-cell:nth-child(3){border-top-color:rgba(15,23,42,.08)}}
+.nav:not(.open) .mobile-menu{border-bottom:0}
+
+/* right-side CTAs (topbar "Buy $MGL" + nav "Join Presale"): match the hero's blue → violet button */
+.tb-cta,.nav .nav-cta,.mobile-menu .btn-primary{color:#fff;background:linear-gradient(90deg,#2563eb,#7c3aed);box-shadow:0 8px 22px rgba(37,99,235,.32)}
+.tb-cta:hover,.nav .nav-cta:hover,.mobile-menu .btn-primary:hover{box-shadow:0 12px 30px rgba(124,58,237,.42)}
+.tb-cta{box-shadow:0 4px 16px rgba(37,99,235,.35)}
+
+/* =========================================================
+   ECOSYSTEM — lift the cards off the dark background
+   ========================================================= */
+#ecosystem{background:
+  radial-gradient(700px 420px at 12% 8%,rgba(124,58,237,.16),transparent 70%),
+  radial-gradient(760px 480px at 92% 60%,rgba(37,99,235,.14),transparent 70%),
+  #060912}
+#ecosystem .eco-card{
+  background:linear-gradient(180deg,#16203d 0%,#0f1730 100%);
+  border:1px solid rgba(129,140,248,.24);
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 24px 50px -18px rgba(0,0,0,.7)}
+#ecosystem .eco-card::after{content:"";position:absolute;left:24px;right:24px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(103,232,249,.55),rgba(167,139,250,.55),transparent);pointer-events:none}
+#ecosystem .eco-card:hover{border-color:rgba(103,232,249,.55);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 28px 60px -16px rgba(37,99,235,.45)}
+#ecosystem .eco-card p{color:#a5b4cf}
+#ecosystem .eco-ill{background:radial-gradient(circle at 50% 50%,rgba(37,99,235,.14),transparent 70%),#080d1d;border-color:rgba(129,140,248,.14);box-shadow:inset 0 2px 12px rgba(0,0,0,.45)}
+#ecosystem .eco-cap{color:#7c8db0}
+
+/* =========================================================
+   RESOURCES — same lifted-card treatment as Ecosystem
+   ========================================================= */
+#resources{background:
+  radial-gradient(700px 420px at 88% 10%,rgba(124,58,237,.16),transparent 70%),
+  radial-gradient(760px 480px at 8% 80%,rgba(37,99,235,.14),transparent 70%),
+  #060912}
+#resources .res{
+  background:linear-gradient(180deg,#16203d 0%,#0f1730 100%);
+  border:1px solid rgba(129,140,248,.24);
+  box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 24px 50px -18px rgba(0,0,0,.7);
+  overflow:hidden}
+#resources .res::after{content:"";position:absolute;left:20px;right:20px;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(103,232,249,.55),rgba(167,139,250,.55),transparent);pointer-events:none}
+#resources .res:hover{border-color:rgba(103,232,249,.55);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 28px 60px -16px rgba(37,99,235,.45)}
+#resources .res p{color:#a5b4cf}
+#resources .res small{color:#7c8db0}
+#resources .res .arrow{stroke:#7c8db0}
+#resources .res .ri{background:rgba(0,229,255,.12);border-color:rgba(103,232,249,.35)}

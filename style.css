@@ -1200,3 +1200,89 @@ html.ss-hide body>*:not(.ss-shield){filter:blur(30px)}
 @media (prefers-reduced-motion:reduce){.rx-in,.rx-in li,.rx-bar i{animation:none;opacity:1}}
 .rx-item{flex:1 1 0}
 @media (max-width:900px){.rx-item{flex:0 0 210px;padding:12px}.rx-live{display:none}.rx-txt b{font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.rx-txt em{white-space:nowrap}.rx-dot{flex-basis:34px;width:34px;height:34px}}
+
+/* =========================================================
+   HERO LIGHT THEME — soft lavender / aqua (overrides above)
+   ========================================================= */
+/* nav: light while sitting on top of the hero, dark glass once scrolled */
+.nav:not(.scrolled){background:#f5f6ff;border-bottom:1px solid rgba(99,102,241,.08)}
+.nav:not(.scrolled) .nav-links a{color:#475569}
+.nav:not(.scrolled) .nav-links a:hover,.nav:not(.scrolled) .nav-links a.active{color:#0f172a}
+.nav:not(.scrolled) .nav-links a::after{background:#2563eb}
+.nav:not(.scrolled) .nav-brand .logo-mark{background:linear-gradient(160deg,#06b6d4 0%,#2563eb 55%,#7c3aed 100%)}
+.nav:not(.scrolled) .burger{border-color:rgba(15,23,42,.12)}
+.nav:not(.scrolled):not(.open) .burger span,
+.nav:not(.scrolled) .burger span::before,.nav:not(.scrolled) .burger span::after{background:#0f172a}
+
+/* background */
+.hero.hz{color:#120b51;background:
+  radial-gradient(700px 520px at 18% 18%,rgba(167,139,250,.28),transparent 70%),
+  radial-gradient(760px 560px at 88% 78%,rgba(103,232,249,.26),transparent 70%),
+  radial-gradient(900px 600px at 50% 60%,rgba(224,231,255,.9),transparent 75%),
+  linear-gradient(180deg,#f5f6ff 0%,#f8f9ff 55%,#eef6ff 100%)}
+.hero.hz .hz-grid{background-image:linear-gradient(rgba(99,102,241,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.06) 1px,transparent 1px)}
+.hero.hz .hz-aur.a1{background:#c4b5fd;opacity:.35}
+.hero.hz .hz-aur.a2{background:#a5f3fc;opacity:.35}
+.hero.hz .hz-stars i{background:#818cf8;box-shadow:0 0 6px rgba(129,140,248,.6)}
+.hero.hz .hz-floor{background-image:linear-gradient(rgba(99,102,241,.22) 1px,transparent 1px),linear-gradient(90deg,rgba(99,102,241,.22) 1px,transparent 1px);opacity:.45}
+
+/* text */
+.hero.hz h1{color:#120b51}
+.hero.hz h1 .grad{background-image:linear-gradient(90deg,#0891b2,#2563eb,#7c3aed,#2563eb,#0891b2)}
+.hero.hz .typing-cursor{background:#2563eb}
+.hero.hz .hz-eyebrow{color:#64748b}
+.hero.hz .hz-intro{color:#475569}
+.hero.hz .hz-intro b{color:#120b51}
+.hero.hz .hz-listed>span{color:#2563eb}
+.hero.hz .chip{color:#1e1b4b;background:#fff;border-color:rgba(15,23,42,.08);box-shadow:0 8px 22px rgba(30,41,99,.08)}
+.hero.hz .chip:hover{border-color:rgba(37,99,235,.35);background:#fff;box-shadow:0 12px 28px rgba(37,99,235,.15)}
+.hero.hz .chip .ico{box-shadow:0 0 0 1px rgba(15,23,42,.08)}
+
+/* coin stage: dotted sphere, soft rings */
+.hero.hz .hz-coin-svg{filter:drop-shadow(0 30px 50px rgba(37,99,235,.35)) drop-shadow(0 0 40px rgba(124,58,237,.18))}
+.hero.hz .hz-halo{background:radial-gradient(circle,rgba(255,255,255,.95) 0%,rgba(224,231,255,.75) 30%,rgba(196,181,253,.22) 48%,transparent 62%)}
+.hero.hz .hz-ring{border-color:rgba(99,102,241,.22)}
+.hero.hz .hz-ring.r1{border-color:rgba(99,102,241,.28);
+  background:radial-gradient(circle,rgba(99,102,241,.38) 1.3px,transparent 1.8px) 0 0/20px 20px,radial-gradient(circle,rgba(255,255,255,.9),rgba(238,242,255,.6) 70%);
+  -webkit-mask-image:radial-gradient(circle,#000 55%,rgba(0,0,0,.35) 71%);mask-image:radial-gradient(circle,#000 55%,rgba(0,0,0,.35) 71%);
+  box-shadow:inset 0 0 60px rgba(167,139,250,.25)}
+.hero.hz .hz-ring.r2{border-color:rgba(124,58,237,.3)}
+.hero.hz .hz-ring.r3{border-color:rgba(37,99,235,.16)}
+.hero.hz .hz-ring.r3 b{background:#2563eb;box-shadow:0 0 12px rgba(37,99,235,.6)}
+.hero.hz .hz-ring.r3 b:nth-child(2){background:#7c3aed;box-shadow:0 0 12px rgba(124,58,237,.6)}
+.hero.hz .hz-beam{background:linear-gradient(180deg,transparent,rgba(103,232,249,.22) 70%,rgba(167,139,250,.25));opacity:.8}
+.hero.hz .hz-parts i{background:#818cf8;box-shadow:0 0 8px rgba(99,102,241,.6)}
+.hero.hz .hz-ped i{border-color:rgba(6,182,212,.5);box-shadow:0 0 24px rgba(103,232,249,.35),inset 0 0 24px rgba(103,232,249,.2)}
+.hero.hz .hz-ped i:nth-child(1){background:radial-gradient(closest-side,rgba(103,232,249,.4),transparent)}
+.hero.hz .hz-oring{border-color:rgba(99,102,241,.4);box-shadow:none}
+.hero.hz .hz-ob{background:#fff;color:#1e1b4b;border:1px solid rgba(15,23,42,.06);box-shadow:0 12px 30px rgba(30,41,99,.12)}
+.hero.hz .hz-ob img{box-shadow:0 0 0 1px rgba(15,23,42,.08)}
+
+/* side HUD cards */
+.hero.hz .hz-side{background:rgba(255,255,255,.85);border:1px solid rgba(15,23,42,.06);box-shadow:0 20px 44px rgba(30,41,99,.12)}
+.hero.hz .hz-k2{color:#2563eb}
+.hero.hz .hz-side b{color:#120b51}
+.hero.hz .hz-s2{color:#64748b}
+.hero.hz .hz-wire{background:linear-gradient(90deg,rgba(99,102,241,.5),rgba(99,102,241,0))}
+.hero.hz .hz-side.r .hz-wire{background:linear-gradient(270deg,rgba(99,102,241,.5),rgba(99,102,241,0))}
+.hero.hz .hz-wire::before{background:#6366f1;box-shadow:0 0 8px rgba(99,102,241,.7)}
+.hero.hz .hz-wire em{background:linear-gradient(90deg,transparent,#6366f1,transparent)}
+
+/* launch timeline bar */
+.hero.hz .hz-bar{background:rgba(255,255,255,.88);border:1px solid rgba(15,23,42,.06);box-shadow:0 30px 70px rgba(30,41,99,.14),inset 0 1px 0 #fff}
+.hero.hz .hz-track{background:rgba(15,23,42,.08)}
+.hero.hz .hz-track #hzFill{background:linear-gradient(90deg,#06b6d4,#2563eb,#7c3aed);box-shadow:0 0 12px rgba(37,99,235,.4)}
+.hero.hz .hz-track #hzNow{box-shadow:0 0 0 4px rgba(37,99,235,.2),0 2px 10px rgba(37,99,235,.5)}
+.hero.hz .hz-track #hzNow span{background:#2563eb;color:#fff}
+.hero.hz .hz-cell{border-left-color:rgba(15,23,42,.08)}
+.hero.hz .hz-k{color:#64748b}
+.hero.hz .hz-cell b{color:#120b51}
+.hero.hz .hz-cell b small,.hero.hz .hz-count small{color:#94a3b8}
+.hero.hz .hz-s{color:#64748b}
+.hero.hz .hz-cell.live .hz-k{color:#16a34a}
+.hero.hz .hz-cell.live b{background:linear-gradient(90deg,#0891b2,#2563eb 50%,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero.hz .hz-count>i{color:#2563eb}
+.hero.hz .hz-buy{color:#fff;background:linear-gradient(90deg,#2563eb,#7c3aed);box-shadow:0 10px 24px rgba(37,99,235,.3)}
+.hero.hz .hz-buy:hover{box-shadow:0 14px 32px rgba(37,99,235,.42)}
+@media (max-width:1100px){.hero.hz .hz-cd{border-top-color:rgba(15,23,42,.08)}}
+@media (max-width:720px){.hero.hz .hz-cell:nth-child(3){border-top-color:rgba(15,23,42,.08)}}

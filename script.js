@@ -215,7 +215,7 @@
 
   /* ---------- Roadmap ---------- */
   var PH = [
-    ["01","PHASE 1","14 OCT – 14 NOV 2026","Presale Launch",["Presale Phase 1 launch","Marketing campaigns & community growth","Website, whitepaper & tokenomics updates"],"#22d3ee"],
+    ["01","PHASE 1","15 OCT – 14 NOV 2026","Presale Launch",["Presale Phase 1 launch","Marketing campaigns & community growth","Website, whitepaper & tokenomics updates"],"#22d3ee"],
     ["02","PHASE 2","15 NOV – 15 DEC 2026","Ecosystem Expansion",["Presale Phase 2","Strategic partnerships & KOL campaigns","Community engagement and launch preparations"],"#3b82f6"],
     ["03","PHASE 3","5 JANUARY 2027","Token Listing",["$MGL Listing","Liquidity provisioning & exchange listing plans","Community airdrop distribution as per schedule"],"#7c3aed"],
     ["04","PHASE 4","2027","Growth & Development",["Ecosystem development","Marketing expansion & community initiatives","Partnership announcements"],"#2dd4bf"],
@@ -223,7 +223,7 @@
     ["06","PHASE 6","MAR 2027","Scaling & Optimization",["Platform improvements & utility expansion","Global community growth","Next-phase roadmap announcement"],"#a78bfa"]
   ];
   /* phase start dates (UTC) used to work out Live / Up next / Upcoming */
-  var PSTART = [Date.UTC(2026,9,14), Date.UTC(2026,10,15), Date.UTC(2027,0,5), Date.UTC(2027,0,6), Date.UTC(2027,1,1), Date.UTC(2027,2,1)];
+  var PSTART = [Date.UTC(2026,9,15), Date.UTC(2026,10,15), Date.UTC(2027,0,5), Date.UTC(2027,0,6), Date.UTC(2027,1,1), Date.UTC(2027,2,1)];
   var NOW = Date.now(), live = 0;
   PSTART.forEach(function(t,i){ if(NOW >= t) live = i; });
   var liveEnd = PSTART[live+1] || (PSTART[live] + 31*864e5);
@@ -399,3 +399,43 @@
     });
   });
 })();
+
+/* ---------- Presale phase state (switches itself by date) ----------
+   Phase 1: 15 Oct – 14 Nov 2026 · Phase 2: 15 Nov – 15 Dec 2026 · Listing: 5 Jan 2027 11:00 UTC */
+(function(){
+  var P2 = Date.UTC(2026,10,15), END = Date.UTC(2026,11,16), LST = Date.UTC(2027,0,5,11,0,0), now = Date.now();
+  var st = now < P2 ? 1 : now < END ? 2 : now < LST ? 3 : 4;   /* 3 = presale over, 4 = listed */
+  var $ = function(id){ return document.getElementById(id); };
+  var T = {
+    1:['Presale Phase&nbsp;1 is live','$2.033','Next phase <b>$2.500</b>','Phase 1 live now'],
+    2:['Presale Phase&nbsp;2 is live','$2.500','Listing price <b>$3.00</b>','Phase 2 live now'],
+    3:['Presale closed · listing soon','$3.00','Bitget listing <b>5 Jan 2027</b>','Presale closed'],
+    4:['$MGL is listed on Bitget','$3.00','Listing price','Listed on Bitget']
+  }[st];
+  if($('tbTitle')){ $('tbTitle').innerHTML = T[0]; $('tbPrice').textContent = T[1]; $('tbNext').innerHTML = T[2]; }
+  if($('hudPhase')) $('hudPhase').textContent = T[3];
+  [1,2].forEach(function(n){
+    var state = st === n ? 'live' : st < n ? 'next' : 'ended';
+    document.querySelectorAll('.hz-cell[data-phase="'+n+'"]').forEach(function(c){
+      c.classList.toggle('live', state === 'live');
+      var lbl = c.querySelector('.ph-lbl'), dot = c.querySelector('.hz-dot');
+      if(lbl) lbl.textContent = 'Phase '+n+' · '+(state === 'live' ? 'Live' : state === 'next' ? 'Next' : 'Ended');
+      if(dot) dot.style.display = state === 'live' ? '' : 'none';
+    });
+    document.querySelectorAll('.price[data-phase="'+n+'"]').forEach(function(card){
+      card.classList.toggle('active', state === 'live');
+      var b = card.querySelector('.badge'), btn = card.querySelector('.btn');
+      b.className = 'badge ' + (state === 'live' ? 'open' : 'soon');
+      b.textContent = state === 'live' ? 'Presale Open' : state === 'next' ? 'Coming Soon' : 'Ended';
+      var html = state === 'live'
+        ? '<a class="btn btn-primary" data-buy href="#">Buy Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>'
+        : '<button class="btn btn-soon" disabled>'+(state === 'next' ? 'Coming Soon' : 'Phase ended')+'</button>';
+      if(btn) btn.outerHTML = html;
+    });
+  });
+})();
+/* buy buttons created above have no real URL yet: stop them jumping to the top */
+document.addEventListener('click', function(e){
+  var a = e.target.closest && e.target.closest('a[href="#"]');
+  if(a) e.preventDefault();
+});

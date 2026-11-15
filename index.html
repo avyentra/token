@@ -25,9 +25,9 @@
   <div class="wrap">
     <div class="tb-left">
       <span class="tb-live"><i></i>LIVE</span>
-      <span class="tb-title">Presale Phase&nbsp;1 is live</span>
-      <span class="tb-price"><b>$2.033</b><em>/ MGL</em></span>
-      <span class="tb-next">Next phase <b>$2.500</b></span>
+      <span class="tb-title" id="tbTitle">Presale Phase&nbsp;2 is live</span>
+      <span class="tb-price"><b id="tbPrice">$2.500</b><em>/ MGL</em></span>
+      <span class="tb-next" id="tbNext">Listing price <b>$3.00</b></span>
     </div>
 
     <div class="tb-mid">
@@ -43,7 +43,7 @@
         <span class="seg"><b data-m>00</b><i>m</i></span>
         <span class="seg"><b data-s>00</b><i>s</i></span>
       </div>
-      <a class="tb-cta" href="#">Buy $MGL <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+      <a class="tb-cta" href="#presale">Buy $MGL <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
     </div>
   </div>
   <div class="tb-line"></div>
@@ -61,7 +61,7 @@
       <a href="#roadmap">Roadmap</a>
       <a href="#resources">Resources</a>
     </div>
-    <a class="btn btn-primary nav-cta" href="#">Join Presale <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+    <a class="btn btn-primary nav-cta" href="#presale">Join Presale <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
     <button class="burger" id="burger" aria-label="Open menu"><span></span></button>
   </div>
   <div class="mobile-menu">
@@ -72,7 +72,7 @@
       <li><a href="#tokenomics">Tokenomics</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#resources">Resources</a></li>
-      <li><a class="btn btn-primary" href="#">Join Presale</a></li>
+      <li><a class="btn btn-primary" href="#presale">Join Presale</a></li>
     </ul>
   </div>
 </nav>
@@ -144,7 +144,7 @@
 
   <div class="wrap hz-hud" aria-hidden="true">
     <div class="hz-side l"><span class="hz-k2">Total supply</span><b>11,000,000</b><span class="hz-s2">MGL · BEP-20 token</span><i class="hz-wire"><em></em></i></div>
-    <div class="hz-side r"><span class="hz-k2">Presale</span><b>RWA Backed</b><span class="hz-s2"><i class="hz-dot"></i>Phase 1 live now</span><i class="hz-wire"><em></em></i></div>
+    <div class="hz-side r"><span class="hz-k2">Presale</span><b>RWA Backed</b><span class="hz-s2"><i class="hz-dot"></i><span id="hudPhase">Phase 2 live now</span></span><i class="hz-wire"><em></em></i></div>
   </div>
 
   <!-- launch timeline bar -->
@@ -152,13 +152,13 @@
     <div class="hz-bar reveal">
       <div class="hz-track"><i id="hzFill"></i><em id="hzNow"><span>Today</span></em></div>
       <div class="hz-cells">
-        <div class="hz-cell live">
-          <span class="hz-k"><i class="hz-dot"></i>Phase 1 · Live</span>
+        <div class="hz-cell" data-phase="1">
+          <span class="hz-k"><i class="hz-dot"></i><span class="ph-lbl">Phase 1 · Ended</span></span>
           <b>$2.033 <small>/ MGL</small></b>
           <span class="hz-s">15 Oct – 14 Nov 2026</span>
         </div>
-        <div class="hz-cell">
-          <span class="hz-k">Phase 2 · Next</span>
+        <div class="hz-cell live" data-phase="2">
+          <span class="hz-k"><i class="hz-dot"></i><span class="ph-lbl">Phase 2 · Live</span></span>
           <b>$2.500 <small>/ MGL</small></b>
           <span class="hz-s">15 Nov – 15 Dec 2026</span>
         </div>
@@ -175,7 +175,7 @@
             <span><b data-m>00</b><small>min</small></span><i>:</i>
             <span><b data-s>00</b><small>sec</small></span>
           </div>
-          <a class="hz-buy" href="#">Buy $MGL <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="hz-buy" href="#presale">Buy $MGL <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
         </div>
       </div>
     </div>
@@ -468,25 +468,25 @@
     </div>
 
     <div class="price-grid">
-      <div class="price active reveal">
-        <div class="ph"><h3>Presale Phase 1</h3><span class="badge open">Presale Open</span></div>
+      <div class="price reveal" data-phase="1">
+        <div class="ph"><h3>Presale Phase 1</h3><span class="badge soon">Ended</span></div>
         <div class="amt">$2.033</div>
         <div class="per">PER $MGL</div>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg>15 Oct – 14 Nov 2026</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg>Instant distribution</li>
         </ul>
-        <a class="btn btn-primary" href="#">Buy Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        <button class="btn btn-soon" disabled>Phase ended</button>
       </div>
-      <div class="price reveal d1">
-        <div class="ph"><h3>Presale Phase 2</h3><span class="badge soon">Coming Soon</span></div>
+      <div class="price active reveal d1" data-phase="2">
+        <div class="ph"><h3>Presale Phase 2</h3><span class="badge open">Presale Open</span></div>
         <div class="amt">$2.500</div>
         <div class="per">PER $MGL</div>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg>15 Nov – 15 Dec 2026</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><path d="m5 12 5 5 9-10"/></svg>Instant distribution</li>
         </ul>
-        <button class="btn btn-soon" disabled>Coming Soon</button>
+        <a class="btn btn-primary" data-buy href="#">Buy Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg></a></a>
       </div>
       <div class="price reveal d2">
         <div class="ph"><h3>Listing</h3><span class="badge conf">Confirmed</span></div>
@@ -509,7 +509,6 @@
         <div class="unit"><b data-s>00</b><span>SECS</span></div>
       </div>
     </div>
-    <p class="note">Dates as published on official MGL channels. Note: Phase 1 is listed as "15 Oct to 14 Nov" on the presale card and "14 Oct – 14 Nov 2026" on the official roadmap.</p>
   </div>
 </section>
 
@@ -527,7 +526,7 @@
         <span class="tk-sk">Total supply</span>
         <b id="tkTotal" data-total="11000000">11,000,000</b>
         <span class="tk-unit">MGL</span>
-        <div class="built">Built on <b>Binance Smart Chain</b></div>
+        <div class="built">Built on <b>BNB Smart Chain</b></div>
       </div>
     </div>
 
@@ -640,7 +639,7 @@
       <div class="cta-grid"></div>
       <div class="cta-inner">
         <h2>Join the MGL: Be Part of the <span class="grad">Decentralized Revolution</span></h2>
-        <p>The MGL community is at the heart of everything we do. Join us today and be part of the future of Web3.</p>
+        <p>The MGL community is at the heart of everything we do. Join us today and be part of the future of Web4.</p>
         <div class="socials">
           <a class="social x" href="https://x.com/themgltoken" target="_blank" rel="noopener noreferrer"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>@themgltoken<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
           <a class="social tg" href="https://t.me/mgltoken_official" target="_blank" rel="noopener noreferrer"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm4.962 7.224c.1-.002.321.023.465.14a.5.5 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>Telegram Community<svg class="arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
@@ -692,7 +691,7 @@
     </div>
     <div class="f-bottom">
       <span>Copyright © <span id="yr">2026</span> MGL. All Rights Reserved.</span>
-      <span class="mid">Ride the future of Web3</span>
+      <span class="mid">Ride the future of Web4</span>
       <nav>
         <a href="#">Cookies Policy</a>
         <a href="#">Privacy Policy</a>
